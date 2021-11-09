@@ -11,3 +11,9 @@ spring:
       ddl-auto: update
     show-sql: true
     defer-datasource-initialization: true
+  servlet:
+    multipart:
+      max-file-size: 128MB
+      max-request-size: 128MB
+        
+        

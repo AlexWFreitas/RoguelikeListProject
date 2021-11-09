@@ -47,4 +47,12 @@ public class GameGenre {
 	public void setGames(List<Game> games) {
 		this.games = games;
 	}
+	
+	public String getImage() {
+		return this.image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 }
