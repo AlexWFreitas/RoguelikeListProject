@@ -1,6 +1,5 @@
 package com.alex.roguelike.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,9 +21,6 @@ public class Game {
 
 	@Column(nullable = true)
 	private String image;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	private GameDetails gameDetails;
 
 	@ManyToOne
 	@JoinColumn(name= "genreId", nullable = false)
@@ -61,13 +56,5 @@ public class Game {
 
 	public void setImage(String image) {
 		this.image = image;
-	}
-
-	public GameDetails getGameDetails() {
-		return this.gameDetails;
-	}
-
-	public void setGameDetails(GameDetails gameDetails) {
-		this.gameDetails = gameDetails;
 	}
 }

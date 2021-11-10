@@ -21,9 +21,6 @@ public class GameGenre {
 	
 	private String image;
 
-	@OneToMany(mappedBy = "genre")
-	private List<Game> games;
-
 	public Long getId() {
 		return this.id;
 	}
@@ -38,14 +35,6 @@ public class GameGenre {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public List<Game> getGames() {
-		return this.games;
-	}
-
-	public void setGames(List<Game> games) {
-		this.games = games;
 	}
 	
 	public String getImage() {

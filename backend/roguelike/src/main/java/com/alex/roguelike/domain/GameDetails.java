@@ -1,10 +1,13 @@
 package com.alex.roguelike.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +24,10 @@ public class GameDetails {
 
 	@Lob
 	private String description;
-
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="game_id", referencedColumnName = "id")
+	private Game game;
 
 	public Long getId() {
 		return this.id;
@@ -53,5 +59,13 @@ public class GameDetails {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Game getGame() {
+		return this.game;
+	}
+
+	public void setGame(Game game) {
+		this.game = game;
 	}
 }
