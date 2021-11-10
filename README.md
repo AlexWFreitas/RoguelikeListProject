@@ -1,2 +1,2 @@
 # RoguelikeListProject
-Favorite Roguelike Site List
+Project for listing Roguelike Games with In-Memory Database
