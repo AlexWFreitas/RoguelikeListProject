@@ -2,7 +2,9 @@ package com.alex.roguelike.controller;
 
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Optional;
 
+import com.alex.roguelike.domain.Game;
 import com.alex.roguelike.domain.GameGenre;
 import com.alex.roguelike.repository.GameGenreRepository;
 
@@ -41,6 +43,12 @@ public class GameGenresController {
 	@GetMapping("/")
 	List<GameGenre> getGameGenres() {
 		return gameGenreRepository.findAll();
+	}
+
+	@GetMapping("/{id}")
+	List<Game> getGamesByGenreId(@PathVariable Long id) {
+		Optional<GameGenre> gameGenre = gameGenreRepository.findById(id);
+		return gameGenre.get().getGames();		
 	}
 
 	@PostMapping("/") 

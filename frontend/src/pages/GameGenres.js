@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import GameGenreCard from "../components/GameGenreCard";
 import Navbar from "../components/Navbar";
 
 function GameGenres() {
+	
+	const [data, setData] = useState([]);
 
-	const images = require.context("../images/games", true);
+	useEffect(() => {
+		fetch(`http://localhost:8080/api/genres/`)
+			.then((response) => response.json())
+			.then(setData);
+	}, []);
 
 	return (
 		<div>
 			<Navbar />
-			<GameGenreCard name="Binding of Isaac" image={images("./1/cover.jpg").default} />
+			<div className="container">
+				<div className="row">
+					{ data.map( (item) => (
+						<GameGenreCard key={item.id} data={item} />
+					))}
+				</div>
+			</div>			
 		</div>
 	);
 }

@@ -1,7 +1,6 @@
 package com.alex.roguelike.controller;
 
 import java.net.URISyntaxException;
-import java.util.List;
 import java.util.Optional;
 
 import com.alex.roguelike.domain.GameDetails;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/games/{gameId}/details")
+@RequestMapping("/api/games/{gameId}")
 public class GameDetailsController {
 
 	private final GameDetailsRepository gameDetailsRepository;
